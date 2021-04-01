@@ -3,6 +3,7 @@ import { AddExpenseForm } from "./components/AddExpenseForm";
 import { ExpenseActionType } from "./types";
 import type { ExpensesActions } from "./types";
 import type { Expense } from "./types/expense";
+import { ExpenseList } from "./components/ExpenseList";
 
 const initialExpenses = [
   { label: "Gym", amount: 30, category: "Leisure", id: "0" },
@@ -49,26 +50,13 @@ export const App = () => {
     <section>
       <h1>Finances</h1>
 
-      <h2>Add Expense: </h2>
-
       <AddExpenseForm addExpense={addExpense} />
 
-      <h2>Expenses:</h2>
-
-      <ul>
-        {expenses.map(({ id, label, amount, category }) => (
-          <li key={id}>
-            Label: {label}
-            <br />
-            Amount: {amount}
-            <br />
-            Category: {category}
-            <br />
-            <button>Edit</button>
-            <button onClick={() => deleteExpense(id)}>Delete</button>
-          </li>
-        ))}
-      </ul>
+      <ExpenseList
+        expenses={expenses}
+        editExpense={editExpense}
+        deleteExpense={deleteExpense}
+      />
     </section>
   );
 };

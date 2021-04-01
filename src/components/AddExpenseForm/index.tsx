@@ -25,48 +25,52 @@ export const AddExpenseForm = ({ addExpense }: AddExpenseFormProps) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="expense">
-        Expense:
-        <input
-          type="text"
-          id="expense"
-          value={label}
-          onChange={(event) => setLabel(event.target.value)}
-          required
-        />
-      </label>
+    <section>
+      <h2>Add Expense: </h2>
 
-      <label htmlFor="amount">
-        Amount:
-        <input
-          type="number"
-          id="amount"
-          min={0}
-          value={amount}
-          onChange={(event) => setAmount(event.target.valueAsNumber)}
-          required
-        />
-      </label>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="expense">
+          Expense:
+          <input
+            type="text"
+            id="expense"
+            value={label}
+            onChange={(event) => setLabel(event.target.value)}
+            required
+          />
+        </label>
 
-      <label htmlFor="category">
-        Category:
-        <select
-          id="category"
-          value={category}
-          onChange={(event) => setCategory(event.target.value)}
-          required
-        >
-          <option value="">Select a category...</option>
+        <label htmlFor="amount">
+          Amount:
+          <input
+            type="number"
+            id="amount"
+            min={0}
+            value={amount}
+            onChange={(event) => setAmount(event.target.valueAsNumber)}
+            required
+          />
+        </label>
 
-          {categories.map((category) => (
-            <option key={category} value={category}>
-              {category}
-            </option>
-          ))}
-        </select>
-      </label>
-      <button type="submit">Add Expense</button>
-    </form>
+        <label htmlFor="category">
+          Category:
+          <select
+            id="category"
+            value={category}
+            onChange={(event) => setCategory(event.target.value)}
+            required
+          >
+            <option value="">Select a category...</option>
+
+            {categories.map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
+        </label>
+        <button type="submit">Add Expense</button>
+      </form>
+    </section>
   );
 };
