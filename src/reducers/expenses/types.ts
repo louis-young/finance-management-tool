@@ -1,4 +1,4 @@
-import type { Expense } from "./types/expense";
+import type { Expense } from "../../types/expense";
 
 export enum ExpenseActionType {
   Add,

@@ -1,45 +1,11 @@
 import { useReducer } from "react";
-import { getStoredExpenses } from "./utilities/localStorage";
-import { AddExpenseForm } from "./components/AddExpenseForm";
-import { ExpenseActionType } from "./types";
-import { ExpenseList } from "./components/ExpenseList";
-import type { ExpensesActions } from "./types";
-import type { Expense } from "./types/expense";
 import { useLocalStorage } from "./hooks/useLocalStorage";
+import { AddExpenseForm } from "./components/AddExpenseForm";
+import { ExpenseList } from "./components/ExpenseList";
 import { calculateTotalExpenses } from "./utilities/calculateTotalExpenses";
-
-const initialExpenses: Expense[] = [];
-
-const reducer = (expenses: Expense[], action: ExpensesActions) => {
-  switch (action.type) {
-    case ExpenseActionType.Add:
-      return [...expenses, action.expenseToAdd];
-    case ExpenseActionType.Edit:
-      return expenses.map((expense) => {
-        if (expense.id !== action.expenseToEdit.id) {
-          return expense;
-        }
-
-        return action.expenseToEdit;
-      });
-    case ExpenseActionType.Delete:
-      return expenses.filter(
-        (expense) => expense.id !== action.expenseToDeleteId
-      );
-    default:
-      return expenses;
-  }
-};
-
-const initialiser = () => {
-  const expenses = getStoredExpenses();
-
-  if (!expenses) {
-    return initialExpenses;
-  }
-
-  return JSON.parse(expenses);
-};
+import { initialExpenses, initialiser, reducer } from "./reducers/expenses";
+import { ExpenseActionType } from "./reducers/expenses/types";
+import type { Expense } from "./types/expense";
 
 export const App = () => {
   const [expenses, dispatch] = useReducer(
