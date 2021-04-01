@@ -1,14 +1,14 @@
 import { useReducer } from "react";
+import { getStoredExpenses } from "./utilities/localStorage";
 import { AddExpenseForm } from "./components/AddExpenseForm";
 import { ExpenseActionType } from "./types";
+import { ExpenseList } from "./components/ExpenseList";
 import type { ExpensesActions } from "./types";
 import type { Expense } from "./types/expense";
-import { ExpenseList } from "./components/ExpenseList";
+import { useLocalStorage } from "./hooks/useLocalStorage";
+import { calculateTotalExpenses } from "./utilities/calculateTotalExpenses";
 
-const initialExpenses = [
-  { label: "Gym", amount: 30, category: "Leisure", id: "0" },
-  { label: "Tax", amount: 200, category: "Bills", id: "1" },
-];
+const initialExpenses: Expense[] = [];
 
 const reducer = (expenses: Expense[], action: ExpensesActions) => {
   switch (action.type) {
@@ -31,8 +31,24 @@ const reducer = (expenses: Expense[], action: ExpensesActions) => {
   }
 };
 
+const initialiser = () => {
+  const expenses = getStoredExpenses();
+
+  if (!expenses) {
+    return initialExpenses;
+  }
+
+  return JSON.parse(expenses);
+};
+
 export const App = () => {
-  const [expenses, dispatch] = useReducer(reducer, initialExpenses);
+  const [expenses, dispatch] = useReducer(
+    reducer,
+    initialExpenses,
+    initialiser
+  );
+
+  useLocalStorage(expenses);
 
   const addExpense = (expenseToAdd: Expense) => {
     dispatch({ type: ExpenseActionType.Add, expenseToAdd });
@@ -46,11 +62,15 @@ export const App = () => {
     dispatch({ type: ExpenseActionType.Delete, expenseToDeleteId });
   };
 
+  const totalExpenses = calculateTotalExpenses(expenses);
+
   return (
     <section>
       <h1>Finances</h1>
 
       <AddExpenseForm addExpense={addExpense} />
+
+      <p>Total: {totalExpenses}</p>
 
       <ExpenseList
         expenses={expenses}
