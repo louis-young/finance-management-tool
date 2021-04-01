@@ -16,6 +16,10 @@ export const ExpenseListItem = ({
     setIsEditing(true);
   };
 
+  const handleDeleteClick = () => {
+    deleteExpense(id);
+  };
+
   if (isEditing) {
     return (
       <EditExpenseForm
@@ -38,7 +42,7 @@ export const ExpenseListItem = ({
       Category: {category}
       <br />
       <button onClick={handleEditClick}>Edit</button>
-      <button onClick={() => deleteExpense(id)}>Delete</button>
+      <button onClick={handleDeleteClick}>Delete</button>
     </li>
   );
 };
