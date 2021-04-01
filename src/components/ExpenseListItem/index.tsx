@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { EditExpenseForm } from "../EditExpenseForm";
 import type { ExpenseListItemProps } from "./types";
 
 export const ExpenseListItem = ({
@@ -8,6 +10,25 @@ export const ExpenseListItem = ({
   editExpense,
   deleteExpense,
 }: ExpenseListItemProps) => {
+  const [isEditing, setIsEditing] = useState(false);
+
+  const handleEditClick = () => {
+    setIsEditing(true);
+  };
+
+  if (isEditing) {
+    return (
+      <EditExpenseForm
+        initialLabel={label}
+        initialAmount={amount}
+        initialCategory={category}
+        id={id}
+        editExpense={editExpense}
+        setIsEditing={setIsEditing}
+      />
+    );
+  }
+
   return (
     <li>
       Label: {label}
@@ -16,7 +37,7 @@ export const ExpenseListItem = ({
       <br />
       Category: {category}
       <br />
-      <button>Edit</button>
+      <button onClick={handleEditClick}>Edit</button>
       <button onClick={() => deleteExpense(id)}>Delete</button>
     </li>
   );
