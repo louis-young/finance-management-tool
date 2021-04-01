@@ -1,3 +1,4 @@
+import { ExpenseListItem } from "../ExpenseListItem";
 import type { ExpenseListProps } from "./types";
 
 export const ExpenseList = ({
@@ -11,16 +12,15 @@ export const ExpenseList = ({
 
       <ul>
         {expenses.map(({ id, label, amount, category }) => (
-          <li key={id}>
-            Label: {label}
-            <br />
-            Amount: {amount}
-            <br />
-            Category: {category}
-            <br />
-            <button>Edit</button>
-            <button onClick={() => deleteExpense(id)}>Delete</button>
-          </li>
+          <ExpenseListItem
+            key={id}
+            id={id}
+            label={label}
+            amount={amount}
+            category={category}
+            editExpense={editExpense}
+            deleteExpense={deleteExpense}
+          />
         ))}
       </ul>
     </section>
