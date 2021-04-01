@@ -13,6 +13,18 @@ const reducer = (expenses: Expense[], action: ExpensesActions) => {
   switch (action.type) {
     case ExpenseActionType.Add:
       return [...expenses, action.expenseToAdd];
+    case ExpenseActionType.Edit:
+      return expenses.map((expense) => {
+        if (expense.id !== action.expenseToEdit.id) {
+          return expense;
+        }
+
+        return action.expenseToEdit;
+      });
+    case ExpenseActionType.Delete:
+      return expenses.filter(
+        (expense) => expense.id !== action.expenseToDeleteId
+      );
     default:
       return expenses;
   }
@@ -23,6 +35,14 @@ export const App = () => {
 
   const addExpense = (expenseToAdd: Expense) => {
     dispatch({ type: ExpenseActionType.Add, expenseToAdd });
+  };
+
+  const editExpense = (expenseToEdit: Expense) => {
+    dispatch({ type: ExpenseActionType.Edit, expenseToEdit });
+  };
+
+  const deleteExpense = (expenseToDeleteId: string) => {
+    dispatch({ type: ExpenseActionType.Delete, expenseToDeleteId });
   };
 
   return (
@@ -44,6 +64,8 @@ export const App = () => {
             <br />
             Category: {category}
             <br />
+            <button>Edit</button>
+            <button onClick={() => deleteExpense(id)}>Delete</button>
           </li>
         ))}
       </ul>

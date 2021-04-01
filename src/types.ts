@@ -6,7 +6,21 @@ export enum ExpenseActionType {
   Delete,
 }
 
-export interface ExpensesActions {
-  type: ExpenseActionType;
+interface ExpensesActionAdd {
+  type: ExpenseActionType.Add;
   expenseToAdd: Expense;
 }
+interface ExpensesActionEdit {
+  type: ExpenseActionType.Edit;
+  expenseToEdit: Expense;
+}
+
+interface ExpensesActionDelete {
+  type: ExpenseActionType.Delete;
+  expenseToDeleteId: string;
+}
+
+export type ExpensesActions =
+  | ExpensesActionAdd
+  | ExpensesActionEdit
+  | ExpensesActionDelete;
