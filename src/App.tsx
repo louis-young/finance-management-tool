@@ -1,17 +1,28 @@
-import { useState } from "react";
+import { useReducer } from "react";
 import { AddExpenseForm } from "./components/AddExpenseForm";
+import { ExpenseActionType } from "./types";
+import type { ExpensesActions } from "./types";
 import type { Expense } from "./types/expense";
 
-const mockExpenses = [
+const initialExpenses = [
   { label: "Gym", amount: 30, category: "Leisure", id: "0" },
   { label: "Tax", amount: 200, category: "Bills", id: "1" },
 ];
 
+const reducer = (expenses: Expense[], action: ExpensesActions) => {
+  switch (action.type) {
+    case ExpenseActionType.Add:
+      return [...expenses, action.expenseToAdd];
+    default:
+      return expenses;
+  }
+};
+
 export const App = () => {
-  const [expenses, setExpenses] = useState<Expense[]>(mockExpenses);
+  const [expenses, dispatch] = useReducer(reducer, initialExpenses);
 
   const addExpense = (expenseToAdd: Expense) => {
-    setExpenses((previousExpenses) => [...previousExpenses, expenseToAdd]);
+    dispatch({ type: ExpenseActionType.Add, expenseToAdd });
   };
 
   return (
