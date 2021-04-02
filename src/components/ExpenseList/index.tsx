@@ -1,15 +1,13 @@
-import { calculateTotalExpenses } from "../../utilities/calculateTotalExpenses";
 import { formatCurrencyValue } from "../../utilities/formatCurrencyValue";
 import { ExpenseListItem } from "../ExpenseListItem";
 import type { ExpenseListProps } from "./types";
 
 export const ExpenseList = ({
   expenses,
+  totalExpenses,
   editExpense,
   deleteExpense,
 }: ExpenseListProps) => {
-  const totalExpenses = calculateTotalExpenses(expenses);
-
   return (
     <section className="w-full">
       <h2 className="font-semibold text-3xl mb-6 mt-6">

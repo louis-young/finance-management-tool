@@ -33,20 +33,18 @@ export const AddExpenseForm = ({ addExpense }: AddExpenseFormProps) => {
   };
 
   return (
-    <div className="w-full">
-      <section className="bg-gray-100 rounded p-6 mt-6 sticky top-12">
-        <h2 className="font-semibold text-2xl mb-6">Add Expense</h2>
+    <section className="bg-gray-100 rounded p-6 mt-6">
+      <h2 className="font-semibold text-2xl mb-6">Add Expense</h2>
 
-        <ExpenseForm
-          label={label}
-          setLabel={setLabel}
-          amount={amount}
-          setAmount={setAmount}
-          category={category}
-          setCategory={setCategory}
-          handleSubmit={handleSubmit}
-        />
-      </section>
-    </div>
+      <ExpenseForm
+        label={label}
+        setLabel={setLabel}
+        amount={amount}
+        setAmount={setAmount}
+        category={category}
+        setCategory={setCategory}
+        handleSubmit={handleSubmit}
+      />
+    </section>
   );
 };
