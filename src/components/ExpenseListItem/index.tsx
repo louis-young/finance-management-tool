@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ButtonStyle } from "../../types/buttonStyle";
-import { formatCurrencyValue } from "../../utilities/formatCurrencyValue";
+import { formatMonetaryValue } from "../../utilities/formatMonetaryValue";
 import { Button } from "../Button";
 import { EditExpenseForm } from "../EditExpenseForm";
 import type { ExpenseListItemProps } from "./types";
@@ -43,7 +43,7 @@ export const ExpenseListItem = ({
       <h3 className="font-semibold text-2xl mb-4">{label}</h3>
 
       <p className="font-medium text-2xl mb-4">
-        £{formatCurrencyValue(amount)}
+        £{formatMonetaryValue(amount)}
       </p>
 
       <p className="font-medium text-lg mb-4">{category}</p>
