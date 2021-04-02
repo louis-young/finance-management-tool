@@ -12,9 +12,9 @@ export const Button = ({
   const buttonClassNames = classNames({
     "px-5 py-3 w-24 rounded text-white transition hover:opacity-80": true,
     "w-full": fullWidth,
-    "bg-blue-500": style === ButtonStyle.Default,
+    "bg-indigo-600": style === ButtonStyle.Default,
     "bg-green-500": style === ButtonStyle.Success,
-    "bg-yellow-500": style === ButtonStyle.Warn,
+    "bg-yellow-400": style === ButtonStyle.Warn,
     "bg-red-500": style === ButtonStyle.Danger,
   });
 

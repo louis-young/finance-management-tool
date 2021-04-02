@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ButtonStyle } from "../../types/buttonStyle";
+import { formatCurrencyValue } from "../../utilities/formatCurrencyValue";
 import { Button } from "../Button";
 import { EditExpenseForm } from "../EditExpenseForm";
 import type { ExpenseListItemProps } from "./types";
@@ -24,7 +25,7 @@ export const ExpenseListItem = ({
 
   if (isEditing) {
     return (
-      <li className="bg-gray-50 p-6">
+      <li className="bg-gray-100 p-6">
         <EditExpenseForm
           initialLabel={label}
           initialAmount={amount}
@@ -38,12 +39,14 @@ export const ExpenseListItem = ({
   }
 
   return (
-    <li className="bg-gray-50 p-6">
+    <li className="bg-gray-100 p-6">
       <h3 className="font-semibold text-2xl mb-4">{label}</h3>
 
-      <p className="font-medium text-2xl mb-4">£{amount}</p>
+      <p className="font-medium text-2xl mb-4">
+        £{formatCurrencyValue(amount)}
+      </p>
 
-      <p className="font-medium text-xl mb-4">{category}</p>
+      <p className="font-medium text-lg mb-4">{category}</p>
 
       <div className="flex gap-4">
         <Button
