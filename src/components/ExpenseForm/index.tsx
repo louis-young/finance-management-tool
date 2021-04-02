@@ -27,6 +27,7 @@ export const ExpenseForm = ({
           value={label}
           onChange={(event) => setLabel(event.target.value)}
           required
+          autoFocus={!isEditing}
         />
       </label>
 

@@ -14,7 +14,7 @@ export const ExpenseList = ({
         Expenses <span>({formatMonetaryValue(totalExpenses)})</span>
       </h2>
 
-      <ul className="flex flex-col gap-4">
+      <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
         {expenses.map(({ id, label, amount, category }) => (
           <ExpenseListItem
             key={id}
