@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { ButtonStyle } from "../../types/buttonStyle";
+import { Button } from "../Button";
 import { EditExpenseForm } from "../EditExpenseForm";
 import type { ExpenseListItemProps } from "./types";
 
@@ -22,27 +24,43 @@ export const ExpenseListItem = ({
 
   if (isEditing) {
     return (
-      <EditExpenseForm
-        initialLabel={label}
-        initialAmount={amount}
-        initialCategory={category}
-        id={id}
-        editExpense={editExpense}
-        setIsEditing={setIsEditing}
-      />
+      <li className="bg-gray-50 p-6">
+        <EditExpenseForm
+          initialLabel={label}
+          initialAmount={amount}
+          initialCategory={category}
+          id={id}
+          editExpense={editExpense}
+          setIsEditing={setIsEditing}
+        />
+      </li>
     );
   }
 
   return (
-    <li>
-      Label: {label}
-      <br />
-      Amount: {amount}
-      <br />
-      Category: {category}
-      <br />
-      <button onClick={handleEditClick}>Edit</button>
-      <button onClick={handleDeleteClick}>Delete</button>
+    <li className="bg-gray-50 p-6">
+      <h3 className="font-semibold text-2xl mb-4">{label}</h3>
+
+      <p className="font-medium text-2xl mb-4">£{amount}</p>
+
+      <p className="font-medium text-xl mb-4">{category}</p>
+
+      <div className="flex gap-4">
+        <Button
+          onClick={handleEditClick}
+          style={ButtonStyle.Default}
+          type="button"
+        >
+          Edit
+        </Button>
+        <Button
+          onClick={handleDeleteClick}
+          style={ButtonStyle.Danger}
+          type="button"
+        >
+          Delete
+        </Button>
+      </div>
     </li>
   );
 };

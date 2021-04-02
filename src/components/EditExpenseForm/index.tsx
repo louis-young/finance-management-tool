@@ -36,7 +36,7 @@ export const EditExpenseForm = ({
 
   return (
     <section>
-      <h2>Edit Expense: </h2>
+      <h2 className="font-semibold text-xl mb-6">Edit Expense ({label})</h2>
 
       <ExpenseForm
         label={label}
