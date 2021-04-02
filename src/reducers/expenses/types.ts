@@ -1,26 +1,21 @@
 import type { Expense } from "../../types/expense";
 
-export enum ExpenseActionType {
+export enum ExpensesActionType {
   Add,
   Edit,
   Delete,
 }
 
-interface ExpensesActionAdd {
-  type: ExpenseActionType.Add;
-  expenseToAdd: Expense;
-}
-interface ExpensesActionEdit {
-  type: ExpenseActionType.Edit;
-  expenseToEdit: Expense;
-}
-
-interface ExpensesActionDelete {
-  type: ExpenseActionType.Delete;
-  expenseToDeleteId: string;
-}
-
 export type ExpensesActions =
-  | ExpensesActionAdd
-  | ExpensesActionEdit
-  | ExpensesActionDelete;
+  | {
+      type: ExpensesActionType.Add;
+      expenseToAdd: Expense;
+    }
+  | {
+      type: ExpensesActionType.Edit;
+      expenseToEdit: Expense;
+    }
+  | {
+      type: ExpensesActionType.Delete;
+      expenseToDeleteId: string;
+    };

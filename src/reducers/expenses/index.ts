@@ -1,6 +1,6 @@
 import { Expense } from "../../types/expense";
 import { getStoredExpenses } from "../../utilities/localStorage";
-import { ExpenseActionType } from "./types";
+import { ExpensesActionType } from "./types";
 import type { ExpensesActions } from "./types";
 
 export const initialExpenses: Expense[] = [
@@ -66,9 +66,9 @@ export const initialiser = () => {
 
 export const reducer = (expenses: Expense[], action: ExpensesActions) => {
   switch (action.type) {
-    case ExpenseActionType.Add:
+    case ExpensesActionType.Add:
       return [...expenses, action.expenseToAdd];
-    case ExpenseActionType.Edit:
+    case ExpensesActionType.Edit:
       return expenses.map((expense) => {
         if (expense.id !== action.expenseToEdit.id) {
           return expense;
@@ -76,7 +76,7 @@ export const reducer = (expenses: Expense[], action: ExpensesActions) => {
 
         return action.expenseToEdit;
       });
-    case ExpenseActionType.Delete:
+    case ExpensesActionType.Delete:
       return expenses.filter(
         (expense) => expense.id !== action.expenseToDeleteId
       );
