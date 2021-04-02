@@ -6,6 +6,7 @@ import {
 import { CHART_COLOURS } from "./constants";
 
 import type { ExpenseChartProps } from "./types";
+import { formatMonetaryValue } from "../../utilities/formatMonetaryValue";
 
 export const ExpenseChart = ({
   expenses,
@@ -15,7 +16,7 @@ export const ExpenseChart = ({
 
   return (
     <section>
-      <ResponsiveContainer width={350} height={350}>
+      <ResponsiveContainer width={500} height={350}>
         <PieChart>
           <Pie
             data={data}
@@ -25,7 +26,9 @@ export const ExpenseChart = ({
             paddingAngle={5}
             dataKey="value"
             label={({ name, value }) =>
-              `${name} (${calculateExpensePercentage(value, totalExpenses)}%)`
+              `${name} - ${formatMonetaryValue(
+                value
+              )} (${calculateExpensePercentage(value, totalExpenses)}%)`
             }
             labelLine={false}
           >

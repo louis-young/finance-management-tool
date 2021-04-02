@@ -42,9 +42,7 @@ export const ExpenseListItem = ({
     <li className="bg-gray-100 p-6">
       <h3 className="font-semibold text-2xl mb-4">{label}</h3>
 
-      <p className="font-medium text-2xl mb-4">
-        £{formatMonetaryValue(amount)}
-      </p>
+      <p className="font-medium text-2xl mb-4">{formatMonetaryValue(amount)}</p>
 
       <p className="font-medium text-lg mb-4">{category}</p>
 

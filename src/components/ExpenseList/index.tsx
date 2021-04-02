@@ -11,7 +11,7 @@ export const ExpenseList = ({
   return (
     <section className="w-full">
       <h2 className="font-semibold text-3xl mb-6 mt-6">
-        Expenses <span>(£{formatMonetaryValue(totalExpenses)})</span>
+        Expenses <span>({formatMonetaryValue(totalExpenses)})</span>
       </h2>
 
       <ul className="flex flex-col gap-4">
