@@ -1,9 +1,9 @@
 import type { Expense } from "../../types/expense";
 
 export enum ExpensesActionType {
-  Add,
-  Edit,
-  Delete,
+  Add = "ADD",
+  Edit = "EDIT",
+  Delete = "DELETE",
 }
 
 export type ExpensesActions =
