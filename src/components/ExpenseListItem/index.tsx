@@ -20,6 +20,14 @@ export const ExpenseListItem = ({
   };
 
   const handleDeleteClick = () => {
+    const hasConfirmedDelete = window.confirm(
+      "Are you sure you want to delete this expense?"
+    );
+
+    if (!hasConfirmedDelete) {
+      return;
+    }
+
     deleteExpense(id);
   };
 
