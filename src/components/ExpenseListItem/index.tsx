@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ButtonStyle } from "../../types/buttonStyle";
-import { formatMonetaryValue } from "../../utilities/formatMonetaryValue";
+import { formatMonetaryValue } from "../../utilities/expenses";
 import { Button } from "../Button";
 import { EditExpenseForm } from "../EditExpenseForm";
 import type { ExpenseListItemProps } from "./types";

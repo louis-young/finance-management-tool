@@ -1,4 +1,4 @@
-import { formatMonetaryValue } from "../../utilities/formatMonetaryValue";
+import { formatMonetaryValue } from "../../utilities/expenses";
 import { ExpenseListItem } from "../ExpenseListItem";
 import type { ExpenseListProps } from "./types";
 

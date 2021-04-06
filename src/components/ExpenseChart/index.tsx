@@ -4,9 +4,8 @@ import {
   formatExpenseChartData,
 } from "./utilities";
 import { CHART_COLOURS } from "./constants";
-
+import { formatMonetaryValue } from "../../utilities/expenses";
 import type { ExpenseChartProps } from "./types";
-import { formatMonetaryValue } from "../../utilities/formatMonetaryValue";
 
 export const ExpenseChart = ({
   expenses,

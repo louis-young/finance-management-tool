@@ -7,3 +7,7 @@ export const calculateTotalExpenses = (expenses: Expense[]) => {
 
   return totalExpenses;
 };
+
+export const formatMonetaryValue = (monetaryValue: number) => {
+  return `£${monetaryValue.toLocaleString("GB")}`;
+};

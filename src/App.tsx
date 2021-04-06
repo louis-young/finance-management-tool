@@ -1,12 +1,12 @@
-import { useReducer } from "react";
-import { useLocalStorage } from "./hooks/useLocalStorage";
+import { useEffect, useReducer } from "react";
 import { AddExpenseForm } from "./components/AddExpenseForm";
 import { ExpenseList } from "./components/ExpenseList";
 import { initialExpenses, initialiser, reducer } from "./reducers/expenses";
 import { ExpensesActionType } from "./reducers/expenses/types";
-import type { Expense } from "./types/expense";
 import { ExpenseChart } from "./components/ExpenseChart";
-import { calculateTotalExpenses } from "./utilities/calculateTotalExpenses";
+import { calculateTotalExpenses } from "./utilities/expenses";
+import { setStoredExpenses } from "./utilities/localStorage";
+import type { Expense } from "./types/expense";
 
 export const App = () => {
   const [expenses, dispatch] = useReducer(
@@ -15,7 +15,9 @@ export const App = () => {
     initialiser
   );
 
-  useLocalStorage(expenses);
+  useEffect(() => {
+    setStoredExpenses(expenses);
+  }, [expenses]);
 
   const addExpense = (expenseToAdd: Expense) => {
     dispatch({ type: ExpensesActionType.Add, expenseToAdd });
