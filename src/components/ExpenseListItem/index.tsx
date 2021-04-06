@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { ButtonStyle } from "../../types/buttonStyle";
 import { formatMonetaryValue } from "../../utilities/expenses";
 import { Button } from "../Button";
 import { EditExpenseForm } from "../EditExpenseForm";
@@ -55,18 +54,10 @@ export const ExpenseListItem = ({
       <p className="font-medium text-lg mb-4">{category}</p>
 
       <div className="flex gap-4">
-        <Button
-          onClick={handleEditClick}
-          style={ButtonStyle.Default}
-          type="button"
-        >
+        <Button onClick={handleEditClick} variation="default" type="button">
           Edit
         </Button>
-        <Button
-          onClick={handleDeleteClick}
-          style={ButtonStyle.Danger}
-          type="button"
-        >
+        <Button onClick={handleDeleteClick} variation="danger" type="button">
           Delete
         </Button>
       </div>

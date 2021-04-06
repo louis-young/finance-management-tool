@@ -4,12 +4,12 @@ import type {
   MouseEvent,
   ReactNode,
 } from "react";
-import type { ButtonStyle } from "../../types/buttonStyle";
 
+type ButtonVariation = "default" | "warn" | "success" | "danger";
 export interface ButtonProps {
   children: ReactNode;
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
-  style: ButtonStyle;
+  variation: ButtonVariation;
   fullWidth?: boolean;
   type: DetailedHTMLProps<
     ButtonHTMLAttributes<HTMLButtonElement>,

@@ -2,7 +2,6 @@ import { categories } from "../../constants/categories";
 import { ExpenseFormProps } from "./types";
 import styles from "./styles.module.css";
 import { Button } from "../Button";
-import { ButtonStyle } from "../../types/buttonStyle";
 
 export const ExpenseForm = ({
   label,
@@ -66,16 +65,12 @@ export const ExpenseForm = ({
       </label>
 
       <div className="mt-8 flex gap-4">
-        <Button
-          style={ButtonStyle.Success}
-          type="submit"
-          fullWidth={!isEditing}
-        >
+        <Button variation="success" type="submit" fullWidth={!isEditing}>
           {isEditing ? "Save" : "Add"}
         </Button>
 
         {isEditing && (
-          <Button onClick={handleCancel} style={ButtonStyle.Warn} type="button">
+          <Button onClick={handleCancel} variation="warn" type="button">
             Cancel
           </Button>
         )}

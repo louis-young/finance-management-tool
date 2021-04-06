@@ -1,21 +1,20 @@
 import classNames from "classnames";
-import { ButtonStyle } from "../../types/buttonStyle";
 import type { ButtonProps } from "./types";
 
 export const Button = ({
   children,
   onClick,
-  style,
+  variation,
   fullWidth,
   type,
 }: ButtonProps) => {
   const buttonClassNames = classNames({
     "px-5 py-3 w-24 rounded text-white transition hover:opacity-80": true,
     "w-full": fullWidth,
-    "bg-indigo-600": style === ButtonStyle.Default,
-    "bg-green-500": style === ButtonStyle.Success,
-    "bg-yellow-400": style === ButtonStyle.Warn,
-    "bg-red-500": style === ButtonStyle.Danger,
+    "bg-indigo-600": variation === "default",
+    "bg-green-500": variation === "success",
+    "bg-yellow-400": variation === "warn",
+    "bg-red-500": variation === "danger",
   });
 
   return (
