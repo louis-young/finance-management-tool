@@ -20,15 +20,18 @@ export const App = () => {
   }, [expenses]);
 
   const addExpense = (expenseToAdd: Expense) => {
-    dispatch({ type: ExpensesActionType.Add, expenseToAdd });
+    dispatch({ type: ExpensesActionType.Add, payload: { expenseToAdd } });
   };
 
   const editExpense = (expenseToEdit: Expense) => {
-    dispatch({ type: ExpensesActionType.Edit, expenseToEdit });
+    dispatch({ type: ExpensesActionType.Edit, payload: { expenseToEdit } });
   };
 
   const deleteExpense = (expenseToDeleteId: string) => {
-    dispatch({ type: ExpensesActionType.Delete, expenseToDeleteId });
+    dispatch({
+      type: ExpensesActionType.Delete,
+      payload: { expenseToDeleteId },
+    });
   };
 
   const totalExpenses = calculateTotalExpenses(expenses);

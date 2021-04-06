@@ -67,18 +67,18 @@ export const initialiser = () => {
 export const reducer = (expenses: Expense[], action: ExpensesActions) => {
   switch (action.type) {
     case ExpensesActionType.Add:
-      return [...expenses, action.expenseToAdd];
+      return [...expenses, action.payload.expenseToAdd];
     case ExpensesActionType.Edit:
       return expenses.map((expense) => {
-        if (expense.id !== action.expenseToEdit.id) {
+        if (expense.id !== action.payload.expenseToEdit.id) {
           return expense;
         }
 
-        return action.expenseToEdit;
+        return action.payload.expenseToEdit;
       });
     case ExpensesActionType.Delete:
       return expenses.filter(
-        (expense) => expense.id !== action.expenseToDeleteId
+        (expense) => expense.id !== action.payload.expenseToDeleteId
       );
     default:
       return expenses;

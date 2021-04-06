@@ -9,13 +9,19 @@ export enum ExpensesActionType {
 export type ExpensesActions =
   | {
       type: ExpensesActionType.Add;
-      expenseToAdd: Expense;
+      payload: {
+        expenseToAdd: Expense;
+      };
     }
   | {
       type: ExpensesActionType.Edit;
-      expenseToEdit: Expense;
+      payload: {
+        expenseToEdit: Expense;
+      };
     }
   | {
       type: ExpensesActionType.Delete;
-      expenseToDeleteId: string;
+      payload: {
+        expenseToDeleteId: string;
+      };
     };
