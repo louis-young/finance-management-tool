@@ -1,6 +1,6 @@
 # Finances
 
-React application to manage, visualise and locally persist financial expenses.
+A finance management application that allows you to manage, visualise, and locally persist financial expenses, written in React.
 
 ![Finances](documentation/finances.jpg)
 
