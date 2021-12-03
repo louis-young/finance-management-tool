@@ -1,16 +1,16 @@
 # Finances
 
-A finance management application that allows you to manage, visualise, and locally persist financial expenses, written in React.
+A finance management application that allows you to manage, visualise, and locally persist financial expenses - written in React.
 
 ![Finances](documentation/finances.jpg)
 
 ## Description
 
-This is an application which allows you to enter and locally persist financial expenses, view your total expenses and visualise a breakdown of expenses per category.
+A finance management application that allows you to enter and locally persist financial expenses, view your total expenses and visualise a breakdown of expenses per category.
 
 ## Motivation
 
-I built this application to improve my understanding of TypeScript in React and to try a new data visualisation library.
+This was a learning project to build upon my understanding of TypeScript in React and to try a new data visualisation library.
 
 ### Available Scripts
 
