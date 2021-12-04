@@ -2,7 +2,7 @@
 
 A finance management tool that allows you to manage, visualise, and locally persist financial expenses. Build in React and TypeScript.
 
-![Finances](documentation/finances.jpg)
+![Finance Management Tool](documentation/finance-management-tool.jpg)
 
 ## Description
 
