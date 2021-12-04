@@ -8,11 +8,15 @@ A finance management tool that allows you to manage, visualise, and locally pers
 
 A finance management tool that allows you to enter and locally persist financial expenses, view your total expenses and visualise a breakdown of expenses per category in a pie chart. 
 
-Built with React and TypeScript.
-
 ## Motivation
 
 This was a learning project to build upon my understanding of TypeScript in React and to try a new data visualisation library.
+
+## Technologies
+
+- TypeScript.
+- React.
+- Tailwind.
 
 ### Available Scripts
 
