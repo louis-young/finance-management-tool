@@ -1,12 +1,12 @@
-# Finances
+# Finance Management Tool
 
-A finance management application that allows you to manage, visualise, and locally persist financial expenses - built with React.
+A finance management tool that allows you to manage, visualise, and locally persist financial expenses. Build in React and TypeScript.
 
 ![Finances](documentation/finances.jpg)
 
 ## Description
 
-A finance management application that allows you to enter and locally persist financial expenses, view your total expenses and visualise a breakdown of expenses per category.
+A finance management tool that allows you to enter and locally persist financial expenses, view your total expenses and visualise a breakdown of expenses per category in a pie chart.
 
 ## Motivation
 
