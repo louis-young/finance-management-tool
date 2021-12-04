@@ -1,6 +1,6 @@
 # Finance Management Tool
 
-A finance management tool that allows you to manage, visualise, and locally persist financial expenses. Build in React and TypeScript.
+A finance management tool that allows you to manage, visualise, and locally persist financial expenses. Built with React and TypeScript.
 
 ![Finance Management Tool](documentation/finance-management-tool.jpg)
 
