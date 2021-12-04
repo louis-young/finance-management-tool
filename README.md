@@ -1,3 +1,5 @@
+⚠️ Please note that this is an old project and does not reflect the quality of my current work.
+
 # Finance Management Tool
 
 A finance management tool that allows you to manage, visualise, and locally persist financial expenses.
