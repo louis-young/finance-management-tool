@@ -6,7 +6,9 @@ A finance management tool that allows you to manage, visualise, and locally pers
 
 ## Description
 
-A finance management tool that allows you to enter and locally persist financial expenses, view your total expenses and visualise a breakdown of expenses per category in a pie chart. Built with React and TypeScript.
+A finance management tool that allows you to enter and locally persist financial expenses, view your total expenses and visualise a breakdown of expenses per category in a pie chart. 
+
+Built with React and TypeScript.
 
 ## Motivation
 
